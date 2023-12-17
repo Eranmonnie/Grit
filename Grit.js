@@ -6,7 +6,7 @@ class Commit {
   constructor(parent, message, id) {
     this.id = id;
     this.message = message;
-    this.parent = parentc;
+    this.parent = parent;
   }
 }
 
