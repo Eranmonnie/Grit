@@ -1,7 +1,3 @@
-// const name =""
-// const message =""
-// const id = 0
-
 class Commit {
   constructor(parent, message, id) {
     this.id = id;
@@ -15,23 +11,21 @@ class Grit {
     this.name = name;
     this.lastCommitId = -1;
     this.head = null;
+  }
 
-    const commit = (message) => {
-      const commit = new Commit(this.head, ++this.lastCommitId, message);
-      this.head = commit;
-      return commit;
-    };
+  commit(message) {
+    var commit = new Commit(this.head,message, ++this.lastCommitId);
+    this.head = commit;
+    return commit;
+  }
 
-    const log = () => {
-      const commit = this.head;
-      const history = [];
-      while (commit) {
-        history.push(commit);
-        commit = commit.parent;
-      }
-    };
+  log() {
+    var commit = this.head;
+    var history = [];
+    while (commit) {
+      history.push(commit);
+      commit = commit.parent;
+    }
     return history;
   }
 }
-
-window.Grit = Grit;
